@@ -49,7 +49,7 @@ plt.show()                                # Visualització de l'objecte gràfic.
 
 El resultat del gràfic és:
 
-<img src="img/sinusoide.png" width="640" align="center">
+<img src="img/sinusoide.png" width="480" align="center">
 
 > Nota: Si es treballa amb ipython, es pot escriure %matplotlib i no cal posar el plt.show() per veure gràfics
 
@@ -90,7 +90,7 @@ plt.ylabel('$\phi_x[k]$')             # Etiqueta de la fase en Latex
 plt.show()                            # Per mostrar els grafics
 ```
 
-<img src="img/TF.png" width="640" align="center">
+<img src="img/TF.png" width="480" align="center">
 
 Proves i exercicis a fer i entregar
 -----------------------------------
