@@ -5,7 +5,7 @@ Per llegir, escriure i representar un fitxer en format `*.wav` en python podem f
 
 - Numpy:
 ```python
-	import numpy as np
+    import numpy as np
 ```
 - Matplotlib: 
 ```python
@@ -29,10 +29,10 @@ L = int(fm * T)	# Nombre de mostres del senyal digital
 Tm=1/fm  # període de mostratge
 t=Tm*np.arange(L)  # Vector amb els valors de la variable temporal, de 0 a T
 x = A * np.cos(2 * pi * fx * t)	# senyal sinusoidal
-sf.write(‘so_exemple1.wav’, x, fm)	# escriptura del senyal a un fitxer en format wav
+sf.write('so_exemple1.wav', x, fm)	# escriptura del senyal a un fitxer en format wav
 ```
 
-El resultat és un fitxer guardat al directori de treball i que es pot reproduir amb qualsevol reproductor d’àudio
+El resultat és un fitxer guardat al directori de treball i que es pot reproduir amb qualsevol reproductor d'àudio
 
 Per **representar** gràficament 5 períodes de senyal fem:
 
@@ -42,9 +42,9 @@ Ls=int(fm*5*Tx)  # Nombre de mostres corresponents a 5 períodes de la sinusoide
 
 plt.figure(0)   # nova figura
 plt.plot(t[0:Ls], x[0:Ls])	# Representació del senyal en funció del temps
-plt.xlabel("t en segons")	# etiqueta eix temporal
-plt.title("5 periodes de la sinusoide")	# títol del gràfic
-plt.show()	 # visualització de l’objecte gràfic. 
+plt.xlabel('t en segons')	# etiqueta eix temporal
+plt.title('5 periodes de la sinusoide')	# títol del gràfic
+plt.show()	 # visualització de l'objecte gràfic. 
 ```
 
 El resultat del gràfic és:
@@ -58,7 +58,7 @@ exemple `sounddevice`:
 
 ```python
 import sounddevice as sd
-sd.play(x, fm)	# reproducció d’àudio
+sd.play(x, fm)	# reproducció d'àudio
 ```
 
 ### Domini transformat
@@ -81,12 +81,12 @@ k=np.arange(N)	# vector amb els valors 0≤  k<N
 plt.figure(1)   # nova figura
 plt.subplot(211)	#  espai per representar el mòdul
 plt.plot(k,abs(X))	# representació del mòdul de la transformada
-plt.title(f’Transformada del senyal de Ls={Ls} mostres amb DFT de N={N}’) # etiqueta del títol
-plt.ylabel(‘|X[k]|’) # etiqueta de mòdul
+plt.title(f'Transformada del senyal de Ls={Ls} mostres amb DFT de N={N}') # etiqueta del títol
+plt.ylabel('|X[k]|') # etiqueta de mòdul
 plt.subplot(212)	#  espai per representar la fase
 plt.plot(k,np.unwrap(np.angle(X)))	# representació de la fase de la transformad, desenroscada
-plt.xlabel(‘Index k’)   # etiqueta de l’eix d’abscisses 
-plt.ylabel(‘$\phi_x[k]$’)  # etiqueta de la fase en Latex
+plt.xlabel('Index k')   # etiqueta de l'eix d'abscisses 
+plt.ylabel('$\phi_x[k]$')  # etiqueta de la fase en Latex
 plt.show()		# Per mostrar els grafics
 ```
 
@@ -95,4 +95,13 @@ plt.show()		# Per mostrar els grafics
 Proves i exercicis a fer i entregar
 -----------------------------------
 
+1.- Reprodueix l'exemple fent servir diferents freqüències per la sinusoide. Al menys considera `f_x = 4 kHz`, a banda d'una
+    freqüència pròpia en el marge audible. Comenta els resultats
+
+2.- Modifica el programa per considerar com a senyal a analitzar el senyal del fitxer wav que has creat 
+	(`x_r, fm = sf.read('nom_fitxer.wav')`)
+
+	- Insereix a continuació una gràfica que mostri 5 períodes del senyal i la seva transformada.
+
+	- Explica el resultat del apartat anterior.
 
